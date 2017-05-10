@@ -1,0 +1,295 @@
+# Copyright (C) 2017 Stefan Constantin
+#
+# This file is part of fanspeedcontrol.
+#
+# fanspeedcontrol is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# fanspeedcontrol is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with fanspeedcontrol. If not, see <http://www.gnu.org/licenses/>.
+# German translations for fanspeedcontrol.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-07 19:56+0200\n"
+"PO-Revision-Date: 2017-05-07 20:13+0200\n"
+"Last-Translator: Stefan <stefan-constantin@gmx.de>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: observers/LoggerObserver.cpp:48
+msgid "%Y-%m-%d %H:%M:%S"
+msgstr ""
+
+#: config/ArgsAndConfigProcessor.cpp:283
+msgid ""
+"Are you sure to remove the lock?\n"
+"This is an option for experts. Wrong usage of the option remove-lock can "
+"overheat your system. See --help for more information.\n"
+"Type y or yes to remove the lock,  n or no to not remove the lock and then "
+"enter.\n"
+msgstr ""
+"Sind Sie sicher die Sperre zu entfernen?\n"
+"Dies ist eine Option für Experten. Die falsche Benutzung von der Option "
+"remove-lock kann Ihr System überhitzen. Vergleiche --help für mehr "
+"Informationen.\n"
+"Tippen Sie j oder ja, um die Sperre zu entfernen, n oder nein, um die Sperre "
+"nicht zu entfernen und dann enter.\n"
+
+#: observers/LoggerObserver.cpp:38
+msgid "Cannot create file logger."
+msgstr "Datei-Logger kann nicht erstellt werden."
+
+#: observers/LoggerObserver.cpp:61
+msgid "Cannot create logger."
+msgstr "Logger kann nicht erstellt werden."
+
+#: observers/SharedStrings.h:12
+msgid "Cannot read the temperature of at least one device."
+msgstr "Die Temperatur von mindestens einem Gerät kann nicht gelesen werden."
+
+#: observers/SharedStrings.h:14
+msgid "Cannot set at least one device to automatic mode."
+msgstr ""
+"Mindestens ein Gerät kann nicht in den automatischen Modus gesetzt werden."
+
+#: observers/SharedStrings.h:16
+msgid "Cannot set fan speed of at least one device."
+msgstr ""
+"Mindestens bei einem Gerät kann die Lüftergeschwindigkeit nicht gesetzt "
+"werden."
+
+#: observers/SharedStrings.h:15
+msgid "Cannot set of least one device to manual mode."
+msgstr "Mindestens ein Gerät kann nicht in den manuellen Modus gesetzt werden."
+
+#: main.cpp:41
+msgid ""
+"Cannot start this fanspeedcontrol instance, because another instance has "
+"locked starting new instances.\n"
+"Terminate running instance to start a new instance.\n"
+"If you are sure, that no other instance is running, remove the lock with the "
+"option --remove-lock if you are not sure, but you want to start a new "
+"fanspeedcontrol instance, restart your system to terminate the possible "
+"running instance and remove the lock.\n"
+"Wrong usage of the option remove-lock can overheat your system."
+msgstr ""
+"Diese fanspeedcontrol Instanz kann nicht gestartet werden, da eine andere "
+"Instanz das Starten von neuen Instanzen gesperrt hat.\n"
+"Beenden Sie die laufende Instanz, um eine neue Instanz zu starten.\n"
+"Wenn Sie sich sicher sind, dass keine andere Instanz läuft, kann die Sperre "
+"mit der Option --remove-lock entfernt werden, wenn Sie sich nicht sicher "
+"sind, starten Sie das System neu, um mögliche laufende Instanzen zu beenden "
+"und die Sperre zu entfernen.\n"
+"Falsche Benutzung von der Option --remove-lock kann Ihr System überhitzen."
+
+#: observers/LoggerObserver.cpp:158
+#, c-format
+msgid "Device %s is terminated with errors."
+msgstr "Gerät %s wurde mit Fehlern beendet."
+
+#: observers/LoggerObserver.cpp:153
+#, c-format
+msgid "Device %s is terminated."
+msgstr "Gerät %s wurde beendet."
+
+#: config/ArgsAndConfigProcessor.cpp:223 config/ArgsAndConfigProcessor.cpp:246
+msgid "FILE"
+msgstr "DATEI"
+
+#: observers/LoggerObserver.cpp:123
+#, c-format
+msgid "Fan of %s is set to %s."
+msgstr "%d.%m.%Y %H:%M:%S"
+
+#: config/ArgsAndConfigProcessor.cpp:226 config/ArgsAndConfigProcessor.cpp:230
+#: config/ArgsAndConfigProcessor.cpp:233 config/ArgsAndConfigProcessor.cpp:250
+msgid "INTERVAL"
+msgstr "INTERVALL"
+
+#: config/ArgsAndConfigProcessor.cpp:240
+msgid "LEVEL"
+msgstr "LEVEL"
+
+#: config/ArgsAndConfigProcessor.cpp:237
+msgid "PATH"
+msgstr "PFAD"
+
+#: observers/SharedStrings.h:13
+msgid "Set at least one device to automatic mode."
+msgstr "Mindestens ein Gerät wurde in den automatischen Modus gesetzt."
+
+#: observers/SharedStrings.h:17
+msgid "Temperature of at least one device is very high."
+msgstr "Die Temperatur von mindestens einem Gerät ist sehr hoch."
+
+#: config/ArgsAndConfigProcessor.cpp:309
+msgid ""
+"The command line parameters are not valid.\n"
+"Please use the option --help to display valid command line parameters."
+msgstr ""
+"Die Kommandozeilenparameter sind nicht gültig.\n"
+"Bitte benutzen Sie die Option --help, um gültige Kommandozeilenparameter "
+"anzuzeigen."
+
+#: observers/SharedStrings.h:11
+msgid "The configuration file is not valid."
+msgstr "Die Konfigurationsdatei ist nicht gültig."
+
+#: config/ArgsAndConfigProcessor.cpp:264
+msgid ""
+"The configuration file must be in the JSON format and has the following "
+"structure for a single device configuration:\n"
+"required attributes: type (value: \"nvidia\" (support must be activated in "
+"the Nvidia driver configuration)), id (value: <id of the device as "
+"integer>), displayName (value: <display name of x server connected to the "
+"device as string>)\n"
+"optional attributes: hysteresis (value: <hysteresis in celsius as integer>, "
+"warn (value: <warn temperature in celsius as integer>), arbitrary number of "
+"attributes <temperature in celsius as integer> (value: <fan speed in percent "
+"as integer>) \n"
+"\n"
+"example single device JSON file:\n"
+msgstr ""
+"Die Konfigurationsdatei muss im JSON-Format sein und hat die folgende "
+"Struktur für eine Ein-Gerät-Konfiguration:\n"
+"benötigte Attribute: type (Wert: \"nvidia\" (Unterstützung muss in der "
+"Nvidia Treiber Konfiguration aktiviert werden)), id (Wert: <ID von dem Gerät "
+"als ganze Zahl>), displayName (Wert: <Displayname des X-Servers, der mit dem "
+"Gerät verbunden ist als Zeichenkette>)\n"
+"optionale Attribute: hysteresis (Wert: <Hysteresis in Celsius als ganze "
+"Zahl>, warn (Wert: <Warn Temperatur in Celsius als ganze Zahl>), beliebige "
+"Anzahl von Attribute <Temperatur in Celsius als ganze Zahl> (Wert: "
+"<Lüftergeschwindigkeit in Prozent als ganze Zahl>) \n"
+"\n"
+"Beispiel Ein-Gerät-JSON-Datei:\n"
+
+#: config/ArgsAndConfigProcessor.cpp:274
+msgid ""
+"The following structure is for a multi device configuration:\n"
+"required attributes: deviceArray (value: array with JSON objects described "
+"for the single device configuration)\n"
+"optional attributes: defaultHysteresis (value: <default hysteresis in "
+"celsius as integer>), defaultWarn (value: <default warn temperature in "
+"celsius as integer>)\n"
+"\n"
+"example multi device JSON file:\n"
+msgstr ""
+"Die folgende Struktur ist für eine Mehr-Geräte-Konfiguration:\n"
+"benötigte Attribute: deviceArray (Wert: Liste mit JSON-Objekte beschrieben "
+"für die Ein-Gerät-Konfiguration)\n"
+"optionale Attribute: defaultHysteresis (Wert: <Standard Hysteresis Celsius "
+"als ganze Zahl>), defaultWarn (Wert: <Standard Warn Temperatur in Celsius "
+"als ganze Zahl>)\n"
+"\n"
+"Beispiel Mehr-Geräte-JSON-Datei:\n"
+
+#: observers/LoggerObserver.cpp:138
+#, c-format
+msgid "Valid configuration of %s"
+msgstr "Gültige Konfiguration von %s"
+
+#: config/ArgsAndConfigProcessor.cpp:220
+msgid "display format of the configuration file"
+msgstr "Format der Konfigurationsdatei anzeigen"
+
+#: config/ArgsAndConfigProcessor.cpp:218
+msgid "display help"
+msgstr "Hilfe anzeigen"
+
+#: config/ArgsAndConfigProcessor.cpp:211
+#, fuzzy
+msgid ""
+"fanspeedcontrol made by Stefan Constantin and licensed under the GPLv3\n"
+"An application to control the fan speeds of supported devices.\n"
+"Do not use kill to terminate this application, only use sigterm, because "
+"only then fanspeedcontrol is able to set devices to automatic fan speed mode "
+"which prohibits overheating.\n"
+"Allowed options"
+msgstr ""
+"fanspeedcontrol erstellt von Stefan Constantin und lizenziert unter der "
+"GPLv3\n"
+"Dieses Programm ist OHNE IRGENDEINE GARANTIE, sogar ohne die implizite "
+"Garantie der MARKTREIFE oder der VERWENDBARKEIT FÜR EINEN BESTIMMTEN ZWECK. "
+"Sie benutzen dieses Programm auf eigene Gefahr.\n"
+"Benutzen Sie nicht kill, um diese Anwendung zu beenden. Benutzen Sie "
+"sigterm, da nur dann fanspeedcontrol fähig ist, Geräte zum automatischen "
+"Lüftergeschwindigkeitsmodus zu setzen, welcher Überhitzung verhindert.\n"
+"Erlaubte Optionen"
+
+#: config/ArgsAndConfigProcessor.cpp:224
+msgid "location of the configuration file"
+msgstr "Ort der Konfigurationsdatei"
+
+#: config/ArgsAndConfigProcessor.cpp:241
+msgid "log level, possible levels: debug, info and error"
+msgstr "Log Level, mögliche Levels: debug, info und error"
+
+#: config/ArgsAndConfigProcessor.cpp:252
+msgid ""
+"minimal interval to begin over playing the sound file with the application "
+"ffplay in seconds"
+msgstr ""
+"minimales Intervall, um erneut die Tondatei mit dem Programm ffplay "
+"abzuspielen"
+
+#: config/ArgsAndConfigProcessor.cpp:235
+msgid ""
+"minimal interval to log repeatedly already occurred error messages in seconds"
+msgstr ""
+"minimales Intervall, um erneut schon vorgekommene Fehlernachrichten zu "
+"loggen in Sekunden"
+
+#: config/ArgsAndConfigProcessor.cpp:231
+msgid ""
+"minimal interval to notify repeatedly already occurred error messages in "
+"seconds"
+msgstr ""
+"minimales Intervall, um erneut schon vorgekommene Fehlernachrichten "
+"anzuzeigen in Sekunden"
+
+#: config/ArgsAndConfigProcessor.cpp:255
+msgid ""
+"option for experts, remove the lock, use the option only if the lock is set, "
+"but no other fanspeedcontrol instance is running, in doubt restart your "
+"machine rather than remove lock, wrong usage of this option can overheat "
+"your system"
+msgstr ""
+"Option für Experten, entfernt die Sperre, benutzen Sie diese Option nur wenn "
+"die Sperre gesetzt, aber keine andere Instanz von fanspeedcontrol läuft, im "
+"Zweifel starten Sie ihr System neu anstatt die Sperre zu entfernen, falsche "
+"Benutzung von dieser Option kann ihr System überhitzen"
+
+#: config/ArgsAndConfigProcessor.cpp:238
+msgid "path of an optional log file"
+msgstr "Dateipfad von einer optionalen Log-Datei"
+
+#: config/ArgsAndConfigProcessor.cpp:227
+msgid "polling interval in milliseconds"
+msgstr "Abfrageintervall in Millisekunden"
+
+#: config/ArgsAndConfigProcessor.cpp:248
+msgid "this file is played with the application ffplay in critical states"
+msgstr ""
+"diese Datei wird mit dem Programm ffplay in kritischen Zuständen abgespielt"
+
+#: config/ArgsAndConfigProcessor.cpp:244
+#, fuzzy
+msgid "use not the program beep in critical states"
+msgstr "rufe das Programm beep in kritischen Zuständen auf"
+
+#: config/ArgsAndConfigProcessor.cpp:291
+msgid "yes"
+msgstr "ja"
