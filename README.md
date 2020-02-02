@@ -14,7 +14,7 @@ The application can be extended by further devices and further ways to alert err
 This application is developed for Linux distributions. With little effort, it should be possible to port the application to other operating systems.
 
 ## dependencies
-libraries: Boost.Interprocess, Boost.Format, Boost.Program_options, gettext, json for modern C++ of the github user nlohman, libnotify, nvctrl, spdlog, x11lib
+libraries: Boost.Interprocess, Boost.Format, Boost.Program_options, gettext, nlohmann json, libnotify, nvctrl, spdlog, x11lib
 
 optional applications in the path: beep, ffplay
 
