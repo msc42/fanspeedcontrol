@@ -21,6 +21,7 @@
 #include <iostream>
 #include <memory>
 #include <thread>
+#include <variant>
 #include <vector>
 
 #include <boost/interprocess/sync/named_mutex.hpp>
@@ -41,13 +42,15 @@ void setAppStopFlag(int signal) {
 int main(int argc, char *argv[]) {
 	msc42::fanspeedcontrol::setLocale();
 
-	int errorCode;
-	const msc42::fanspeedcontrol::configuration configuration =
-			msc42::fanspeedcontrol::processArguments(argc, argv, errorCode);
+	std::variant<msc42::fanspeedcontrol::configuration, int> configurationOrErrorCode =
+			msc42::fanspeedcontrol::processArguments(argc, argv);
 
-	if (configuration.devices.empty()) {
-		return errorCode;
+	if (std::holds_alternative<int>(configurationOrErrorCode)) {
+		return std::get<int>(configurationOrErrorCode);
 	}
+
+	const msc42::fanspeedcontrol::configuration configuration =
+			std::move(std::get<msc42::fanspeedcontrol::configuration>(configurationOrErrorCode));
 
 	std::signal(SIGTERM, setAppStopFlag);
 	std::signal(SIGINT, setAppStopFlag);

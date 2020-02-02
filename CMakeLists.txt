@@ -15,9 +15,8 @@
 # You should have received a copy of the GNU General Public License
 # along with fanspeedcontrol. If not, see <http://www.gnu.org/licenses/>.
 
-cmake_minimum_required (VERSION 3.3)
-set(CMAKE_CXX_STANDARD 11)
-project (fanspeedcontrol)
+cmake_minimum_required(VERSION 3.8)
+project(fanspeedcontrol)
 set(PACKAGE_AUTHOR "Stefan Constantin <stefan-constantin@gmx.de>")
 
 
@@ -49,6 +48,8 @@ src/patterns/observer/Observable.h
 )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+
+target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
 
 if(NOT CONFIG_FILE STREQUAL "")
 	target_compile_definitions(${PROJECT_NAME} PUBLIC CONFIG_FILE="${CONFIG_FILE}")

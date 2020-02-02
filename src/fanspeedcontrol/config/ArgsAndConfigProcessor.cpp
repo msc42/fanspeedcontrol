@@ -27,6 +27,7 @@
 #include <regex>
 #include <string>
 #include <utility>
+#include <variant>
 #include <vector>
 
 #include <boost/interprocess/sync/named_mutex.hpp>
@@ -318,7 +319,7 @@ bool removeLockAfterPositiveDialog() {
 	return true;
 }
 
-configuration processArguments(int argc, char *argv[], int &errorCode) {
+std::variant<configuration, int> processArguments(int argc, char *argv[]) {
 	boost::program_options::options_description optionDescription = generateOptionDescription();
 
 	boost::program_options::variables_map vm;
@@ -329,32 +330,24 @@ configuration processArguments(int argc, char *argv[], int &errorCode) {
 	} catch (boost::program_options::error &e) {
 		std::cout << gettext("The command line parameters are not valid.\n"
 				"Please use the option --help to display valid command line parameters.") << std::endl;
-		errorCode = EXIT_FAILURE;
-		configuration emptyConfiguration;
-		return emptyConfiguration;
+		return EXIT_FAILURE;
 	}
 
 	boost::program_options::notify(vm);
 
 	if (vm.count(argumentHelp)) {
 		std::cout << optionDescription << std::endl;
-		errorCode = EXIT_SUCCESS;
-		configuration emptyConfiguration;
-		return emptyConfiguration;
+		return EXIT_SUCCESS;
 	}
 
 	if (vm.count(argumentHelpConfiguration)) {
 		printOnCoutConfigurationFormat();
-		errorCode = EXIT_SUCCESS;
-		configuration emptyConfiguration;
-		return emptyConfiguration;
+		return EXIT_SUCCESS;
 	}
 
 	if (vm.count(argumentRemoveLock)) {
 		if (!removeLockAfterPositiveDialog()) {
-			errorCode = EXIT_SUCCESS;
-			configuration emptyConfiguration;
-			return emptyConfiguration;
+			return EXIT_SUCCESS;
 		}
 	}
 
@@ -374,17 +367,13 @@ configuration processArguments(int argc, char *argv[], int &errorCode) {
 
 	if (devices.empty()) {
 		loggerObserver->notify(AbstractDevice::CONFIG_FILE_ERROR);
-		errorCode = EXIT_FAILURE;
-		configuration emptyConfiguration;
-		return emptyConfiguration;
+		return EXIT_FAILURE;
 	}
 
 	for (const std::unique_ptr<AbstractDevice> &device : devices) {
 		if (!device->checkIfValid()) {
 			loggerObserver->notify(AbstractDevice::CONFIG_FILE_ERROR);
-			errorCode = EXIT_FAILURE;
-			configuration emptyConfiguration;
-			return emptyConfiguration;
+			return EXIT_FAILURE;
 		}
 	}
 
@@ -399,8 +388,7 @@ configuration processArguments(int argc, char *argv[], int &errorCode) {
 	configuration configuration;
 	configuration.devices = std::move(devices);
 	configuration.interval = std::chrono::milliseconds(interval);
-	errorCode = EXIT_SUCCESS;
-	return configuration;
+	return std::move(configuration);
 }
 
 }

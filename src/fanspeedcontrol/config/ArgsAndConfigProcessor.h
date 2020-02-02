@@ -21,6 +21,7 @@
 #include <chrono>
 #include <regex>
 #include <string>
+#include <variant>
 #include <vector>
 
 #include "fanspeedcontrol/devices/AbstractDevice.h"
@@ -39,7 +40,7 @@ struct configuration {
 };
 
 void setLocale();
-configuration processArguments(int argc, char *argv[], int &errorCode);
+std::variant<configuration, int> processArguments(int argc, char *argv[]);
 
 }
 }
