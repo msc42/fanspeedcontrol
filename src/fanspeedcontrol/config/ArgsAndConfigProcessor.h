@@ -19,6 +19,7 @@
 #define FANSPEEDCONTROL_CONFIG_ARGSANDCONFIGPROCESSOR_H_
 
 #include <chrono>
+#include <regex>
 #include <string>
 #include <vector>
 
@@ -29,6 +30,8 @@ namespace fanspeedcontrol {
 
 const std::string APP_NAME = "fanspeedcontrol";
 const std::string DOMAIN_NAME = "msc42_" + APP_NAME;
+
+const std::regex REGEX_IS_INTEGER("\\d+");
 
 struct configuration {
 	std::vector<std::unique_ptr<AbstractDevice>> devices;

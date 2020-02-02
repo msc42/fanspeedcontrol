@@ -57,8 +57,6 @@ endif()
 set(LOCALE_DIR ${CMAKE_INSTALL_PREFIX}/share/locale)
 target_compile_definitions(${PROJECT_NAME} PUBLIC CONFIG_DIR="${LOCALE_DIR}")
 
-target_compile_definitions(${PROJECT_NAME} PUBLIC SPDLOG_ENABLE_SYSLOG=true)
-
 find_package(Boost REQUIRED COMPONENTS program_options)
 include_directories(${Boost_INCLUDE_DIRS})
 set(LIBS ${LIBS} ${Boost_LIBRARIES})

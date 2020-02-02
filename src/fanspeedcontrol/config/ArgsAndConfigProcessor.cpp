@@ -24,6 +24,7 @@
 #include <iostream>
 #include <map>
 #include <memory>
+#include <regex>
 #include <string>
 #include <utility>
 #include <vector>
@@ -154,10 +155,8 @@ std::unique_ptr<AbstractDevice> getDeviceOptional(
 
 	std::map<int, int> pairs;
 	for (auto it = deviceConfiguration.begin(); it != deviceConfiguration.end(); ++it) {
-		try {
+		if (std::regex_match(it.key(), REGEX_IS_INTEGER)) {
 			pairs[std::stoi(it.key())] = it.value();
-		} catch (std::invalid_argument &e) {
-			continue;
 		}
 	}
 

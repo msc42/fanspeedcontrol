@@ -24,6 +24,8 @@
 #include <boost/format.hpp>
 #include <libintl.h>
 #include <spdlog/spdlog.h>
+#include <spdlog/sinks/rotating_file_sink.h>
+#include <spdlog/sinks/stdout_sinks.h>
 #include <spdlog/sinks/syslog_sink.h>
 
 #include "fanspeedcontrol/devices/AbstractDevice.h"
@@ -56,9 +58,7 @@ LoggerObserver::LoggerObserver(const std::chrono::milliseconds &timeToLogRepeate
 			}
 		}
 
-#ifdef SPDLOG_ENABLE_SYSLOG
-		sinks.push_back(std::make_shared<spdlog::sinks::syslog_sink>(appName));
-#endif
+		sinks.push_back(std::make_shared<spdlog::sinks::syslog_sink_mt>("", 0, LOG_USER));
 
 		logger = std::make_shared<spdlog::logger>(appName, begin(sinks), end(sinks));
 		spdlog::register_logger(logger);
